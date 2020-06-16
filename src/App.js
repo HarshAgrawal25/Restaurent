@@ -1,18 +1,21 @@
 import React from 'react';
 import {Navbar, NavbarBrand} from 'reactstrap';
-import './App.css'; 
+import Hello from './components/Hello'
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar dark color="primary">
+class App extends React.Component
+{
+  render(){
+    return(
+          <div>
+             <Navbar dark color="primary">
         <div className="container">
-          <NavbarBrand href="/">Harsh Agrawal</NavbarBrand>
+          <NavbarBrand href="/">Restaurent</NavbarBrand>
           </div>
       </Navbar>
-        
-    </div>
-  );
+         <Hello />
+          </div>
+    );
+  }
 }
 
 export default App;
