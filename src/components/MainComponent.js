@@ -32,9 +32,10 @@ class Main extends React.Component {
                             <Hello dishes={this.state.dishes}
                             onClick={(dishId) =>this.onDishSelect(dishId)} />
                     </div>
+                    </div>
                             <Dishdetail 
                             dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
-        </div>
+        
       </div>
     );
   }
