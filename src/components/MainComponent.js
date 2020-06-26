@@ -5,7 +5,7 @@ import { DISHES } from '../shared/dishes';
 import { COMMENTS } from '../shared/comments';
 import { LEADERS } from '../shared/leaders';
 import { PROMOTIONS } from '../shared/promotions';
-
+import About from './AboutComponent';
 import Dishdetail from './DishdetailComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
@@ -58,6 +58,7 @@ class Main extends React.Component {
                      dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} /> */}
                      <Switch>
                        <Route path="/home" component={HomePage} />
+                    <Route exact path="/aboutus" component={() => <About leaders={this.state.leaders} />} />
                        <Route exact path="/hello" component={() => <Hello dishes={this.state.dishes} />} />
                        <Route path="/hello/:dishId" component={DishWithId} />
                        <Route exact path="/contactus" component={Contact} />

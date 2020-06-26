@@ -1,7 +1,25 @@
 import React from 'react';
-import {Breadcrumb,BreadcrumbItem} from 'reactstrap'
+import {Breadcrumb,BreadcrumbItem , Button , Label , Form , FormGroup , Col} from 'reactstrap'
 import {Link} from 'react-router-dom'
-function Contact(props) {
+
+
+class Contact extends React.Component{
+    constructor(props){
+        super(props)
+        this.state ={
+            firstname:'',
+            lastname:'',
+            telnum:'',
+            email:'',
+            agree:false,
+            contactType:'Tel.',
+            message:'' 
+
+        }
+    }
+
+
+    render(){
     return(
         <div className="container">
 
@@ -45,5 +63,5 @@ function Contact(props) {
         </div>
     );
 }
-
+}
 export default Contact;
