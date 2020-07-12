@@ -12,8 +12,12 @@ import {connect} from 'react-redux';
 const mapStateToProps = state => {
   return{
     dishes:state.dishes,
-    comments:state.commenst,
-    promotions:state.promotion,
+    comments:state.comments,
+    promotions:state.promotions,
+
+
+
+
     leaders:state.leaders,
   }     
 }
