@@ -5,7 +5,7 @@ import {Control , LocalForm , Errors } from 'react-redux-form';
 import {Loading} from './LoadingComponent';
 import {baseUrl} from '../shared/baseUrl';
 
-    function RenderComments({comments , addComment , dishId}) {
+    function RenderComments({comments , postComment , dishId}) {
         if (comments == null) {
             return (<div></div>)
         }
@@ -30,7 +30,7 @@ import {baseUrl} from '../shared/baseUrl';
                 <ul className='list-unstyled'>
                     {cmnts}
                 </ul>
-                <CommentForm  dishId={dishId} addComment={addComment}/>
+                <CommentForm  dishId={dishId} postComment={postComment}/>
             </div>
         )
     }
@@ -93,7 +93,7 @@ import {baseUrl} from '../shared/baseUrl';
                     {commentItem} */}
                     <RenderDish dish={props.dish} />
                     <RenderComments comments={props.comments}
-                                    addComment={props.addComment}
+                                    postComment={props.postComment}
                                     dishId={props.dish.id} />
                 </div>
             </div>
@@ -125,7 +125,7 @@ import {baseUrl} from '../shared/baseUrl';
         handleSubmit(values) {
 
             this.toggleModal();
-            this.props.addComment(this.props.dishId , values.rating , values.author , values.comment  )
+            this.props.postComment(this.props.dishId , values.rating , values.author , values.comment  )
         }
         render(){
             return(
@@ -152,7 +152,7 @@ import {baseUrl} from '../shared/baseUrl';
                                     <Col md={12}>
                                         <Control.text model=".author" id="author" name="author" class="form-control"
                                         placeholder ="Your Name"
-                                        validators={{ required,minLength:minLength(2),maxLength:maxLength(15)}} />
+                                        validators={{ required,minLength:minLength(3),maxLength:maxLength(15)}} />
                                         <Errors className="text-danger" model=".author" show="touched" messages={{ required: 'Required', minLength: 'Must be greater than 2 characters', maxLength: 'Must be 15 charaters or less' }} />
                                     </Col>
                                 </Row>   
