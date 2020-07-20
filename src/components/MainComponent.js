@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 import { postComment , fetchDishes, fetchPromos , fetchComments } from '../redux/ActionCreators';
 //import { controls } from "react-redux-form";
 import { actions } from 'react-redux-form';
+import {TransitionGroup , CSSTransition} from 'react-transition-group';
 
 const mapStateToProps = state => {
   return{
@@ -72,20 +73,23 @@ class Main extends React.Component {
     }
     return (
       <div>
-        <Header />
-            
+        <Header />  
+              <TransitionGroup>
+                <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
                 {/* <Hello dishes={this.props.dishes}
                       onClick={(dishId) =>this.onDishSelect(dishId)} />
                 <Dishdetail 
                      dish={this.props.dishes.filter((dish) => dish.id === this.props.selectedDish)[0]} /> */}
-                     <Switch>
-                       <Route path="/home" component={HomePage} />
-                    <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
-                       <Route exact path="/hello" component={() => <Hello dishes={this.props.dishes} />} />
-                       <Route path="/hello/:dishId" component={DishWithId} />
-                       <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
-                       <Redirect to="/home" />
-                     </Switch>
+                        <Switch>
+                          <Route path="/home" component={HomePage} />
+                        <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
+                          <Route exact path="/hello" component={() => <Hello dishes={this.props.dishes} />} />
+                          <Route path="/hello/:dishId" component={DishWithId} />
+                          <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+                          <Redirect to="/home" />
+                        </Switch>
+                     </CSSTransition>
+              </TransitionGroup>
         <Footer />
         
       </div>
