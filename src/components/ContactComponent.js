@@ -1,7 +1,7 @@
 import React from 'react';
 import {Breadcrumb,BreadcrumbItem , Button , Label ,  Col , Row } from 'reactstrap'
 import {Link} from 'react-router-dom';
-import {Control , Form , Errors , actions } from 'react-redux-form';
+import {Control , Form , Errors } from 'react-redux-form';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -18,8 +18,11 @@ class Contact extends React.Component{
     }
 handleSubmit(values){
     console.log("current state is :" + JSON.stringify(values));
-    alert("current state is :" + JSON.stringify(values));
-    this.props.resetFeedbackForm();
+    //alert("current state is :" + JSON.stringify(values));
+    // this.props.resetFeedbackForm();
+    this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message)
+        this.props.resetFeedbackForm()
+    
     //event.preventDefault();
     // the above function prevent the page to go to another page when we pree Send Feedback button as a default nature of Button
     }
