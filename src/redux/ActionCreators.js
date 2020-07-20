@@ -20,7 +20,8 @@ export const postComment = (dishId, rating, author, comment) =>(dispatch) => {
     return fetch(baseUrl + 'comments',{
         method:'POST',
         body:JSON.stringify(newComment),
-        header:{
+        //headers instead of header
+        headers:{
             "Content-Type":"application/json"
         },
         credentials: "same-origin"
@@ -45,9 +46,7 @@ export const postComment = (dishId, rating, author, comment) =>(dispatch) => {
         alert('Your comment could not be posted\nError: '+ error.message);
     })
 } 
-// thunk
-
-
+// this is thunk
 export const fetchDishes = () => (dispatch) => {
     dispatch(dishesLoading(true));
    

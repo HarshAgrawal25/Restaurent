@@ -20,8 +20,17 @@ handleSubmit(values){
     console.log("current state is :" + JSON.stringify(values));
     //alert("current state is :" + JSON.stringify(values));
     // this.props.resetFeedbackForm();
-    this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message)
-        this.props.resetFeedbackForm()
+    this.props.postFeedback(
+       
+      values.firstname,
+      values.lastname,
+      values.telnum,
+      values.email,
+      values.agree,
+      values.contactType,
+      values.message
+    );
+    this.props.resetFeedbackForm();
     
     //event.preventDefault();
     // the above function prevent the page to go to another page when we pree Send Feedback button as a default nature of Button

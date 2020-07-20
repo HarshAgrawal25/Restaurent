@@ -111,10 +111,16 @@ class Main extends React.Component {
                      dish={this.props.dishes.filter((dish) => dish.id === this.props.selectedDish)[0]} /> */}
                         <Switch>
                           <Route path="/home" component={HomePage} />
-                        <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
                           <Route exact path="/hello" component={() => <Hello dishes={this.props.dishes} />} />
                           <Route path="/hello/:dishId" component={DishWithId} />
-                          <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+                          <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} 
+                            postFeedback={this.props.postFeedback} /> }/>
+                        <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} 
+                         leaderLoading={this.props.leaders.isLoading}
+                         leaderErrMess={this.props.leaders.errMess}/>} />
+                         
+                          
+                        
                           <Redirect to="/home" />
                         </Switch>
                      </CSSTransition>
